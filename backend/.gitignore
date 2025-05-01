@@ -1,0 +1,4 @@
+# Placeholder for backend/.gitignore
+bin/
+obj/
+*.db

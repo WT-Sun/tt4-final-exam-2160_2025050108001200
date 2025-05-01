@@ -1,0 +1,11 @@
+# Placeholder for .dockerignore
+node_modules
+build
+dist
+*.log
+*.db
+.env
+.git
+.gitignore
+Dockerfile
+Dockerfile.*

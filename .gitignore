@@ -1,0 +1,13 @@
+# Placeholder for .gitignore
+# Node
+node_modules/
+build/
+
+# Dotnet
+bin/
+obj/
+*.db
+
+# OS
+.DS_Store
+Thumbs.db
