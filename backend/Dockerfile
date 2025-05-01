@@ -1,17 +1,16 @@
-FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
-WORKDIR /app
-EXPOSE 80
-
+# 使用 SDK 构建镜像
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
-WORKDIR /src
+WORKDIR /app
 COPY . .
 RUN dotnet restore
-RUN dotnet publish -c Release -o /app/publish
+RUN dotnet publish -c Release -o out
 
-FROM base AS final
+# 使用 Runtime 镜像运行发布结果
+FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS runtime
 WORKDIR /app
-COPY --from=build /app/publish .
+COPY --from=build /app/out ./
 ENTRYPOINT ["dotnet", "backend.dll"]
+
 
 
 
