@@ -1,6 +1,6 @@
 # Placeholder for Dockerfile
 # Stage 1: build React app
-FROM node:lts-alpine AS builder
+FROM node:16 AS build
 WORKDIR /app
 COPY ./frontend/package*.json ./
 RUN npm install
